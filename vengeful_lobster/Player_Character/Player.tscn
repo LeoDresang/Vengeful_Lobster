@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://cs5tlhhlfa8sl"]
+
+[ext_resource type="Script" path="res://Player_Character/player.gd" id="1_xn707"]
+[ext_resource type="Texture2D" uid="uid://c8mkttsh8et4y" path="res://Assets/Placeholders/pngimg.com - chef_PNG68.png" id="2_itsfa"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mrrse"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_itsfa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1nop1"]
+radius = 53.0848
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+script = ExtResource("1_xn707")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.176148, 0.176148)
+sprite_frames = SubResource("SpriteFrames_mrrse")
+
+[node name="Hit_Detector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hit_Detector"]
+shape = SubResource("CircleShape2D_1nop1")
