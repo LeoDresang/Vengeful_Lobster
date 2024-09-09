@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://ncs17tbaki4t"]
 
-[ext_resource type="Texture2D" uid="uid://dkhbf123i5k7y" path="res://Assets/Placeholders/lobster-under-the-sea-clip-art-element-transparent-background-png.webp" id="1_fn5he"]
 [ext_resource type="Script" path="res://Enimies/lobster.gd" id="1_yxl8y"]
+[ext_resource type="Texture2D" uid="uid://cyycneac4qp57" path="res://Assets/Placeholders/ThielMike_Lobster_StaticEnemy_Sprite_V1.png" id="2_1fyio"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s0pb2"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_fn5he")
+"texture": ExtResource("2_1fyio")
 }],
 "loop": true,
 "name": &"default",
@@ -18,6 +18,7 @@ animations = [{
 script = ExtResource("1_yxl8y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
 rotation = 4.71239
 scale = Vector2(0.0414882, 0.0414882)
 sprite_frames = SubResource("SpriteFrames_s0pb2")

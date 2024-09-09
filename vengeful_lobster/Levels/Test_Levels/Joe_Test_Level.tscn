@@ -9,6 +9,7 @@
 [node name="TestLevel" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_pbqnn")]
+position = Vector2(506, 271)
 
 [node name="Simple-background-backgrounds-passion-simple-1-5c9b95c3a34f9" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.188235)
@@ -17,6 +18,8 @@ texture = ExtResource("2_bpahl")
 
 [node name="Lobster" parent="." instance=ExtResource("3_xcyql")]
 position = Vector2(128, 77)
+scale = Vector2(40, 40)
+script = null
 
 [node name="Camera" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_jqo6t")]
 player = NodePath("../Player")
