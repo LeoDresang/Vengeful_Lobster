@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-# Speed of character in pixels/sec
+## Speed of character in pixels/sec
 var speed = 400
 
 # Called when the node enters the scene tree for the first time.
