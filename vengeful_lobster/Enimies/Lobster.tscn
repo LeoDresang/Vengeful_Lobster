@@ -19,6 +19,8 @@ script = ExtResource("1_yxl8y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 1
+texture_filter = 1
+texture_repeat = 1
 rotation = 4.71239
 scale = Vector2(0.0414882, 0.0414882)
 sprite_frames = SubResource("SpriteFrames_s0pb2")

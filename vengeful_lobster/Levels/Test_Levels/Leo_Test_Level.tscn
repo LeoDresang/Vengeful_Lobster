@@ -9,12 +9,11 @@
 
 [node name="TestLevel" type="Node"]
 
-[node name="Player" parent="." instance=ExtResource("1_wdtu2")]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Simple-background-backgrounds-passion-simple-1-5c9b95c3a34f9" type="Sprite2D" parent="."]
-self_modulate = Color(1, 1, 1, 0.188235)
-position = Vector2(526, 324)
-texture = ExtResource("2_t7sn7")
+[node name="TransitionManager" parent="CanvasLayer" instance=ExtResource("6_ldvs5")]
+
+[node name="Player" parent="." instance=ExtResource("1_wdtu2")]
 
 [node name="Lobster" parent="." instance=ExtResource("3_1d1p6")]
 position = Vector2(128, 77)
@@ -24,6 +23,8 @@ player = NodePath("../Player")
 
 [node name="Enemy_Spawner" parent="." instance=ExtResource("5_k4lcr")]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="TransitionManager" parent="CanvasLayer" instance=ExtResource("6_ldvs5")]
+[node name="Simple-background-backgrounds-passion-simple-1-5c9b95c3a34f9" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.188235)
+z_index = -9
+position = Vector2(526, 324)
+texture = ExtResource("2_t7sn7")
