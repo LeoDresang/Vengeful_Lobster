@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://dgqqhh8vahdif"]
+
+[ext_resource type="PackedScene" uid="uid://cs5tlhhlfa8sl" path="res://Player_Character/Player.tscn" id="1_pbqnn"]
+[ext_resource type="Texture2D" uid="uid://omxdo43qpquo" path="res://Assets/Placeholders/simple-background-backgrounds-passion-simple-1-5c9b95c3a34f9.png" id="2_bpahl"]
+[ext_resource type="PackedScene" uid="uid://ncs17tbaki4t" path="res://Enimies/Lobster.tscn" id="3_xcyql"]
+[ext_resource type="PackedScene" uid="uid://l1s58k5drqup" path="res://Camera/Camera.tscn" id="4_jqo6t"]
+[ext_resource type="PackedScene" uid="uid://puf3kbkbmxt2" path="res://Enimies/Enemy_Spawner.tscn" id="5_k32po"]
+
+[node name="TestLevel" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_pbqnn")]
+
+[node name="Simple-background-backgrounds-passion-simple-1-5c9b95c3a34f9" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.188235)
+position = Vector2(526, 324)
+texture = ExtResource("2_bpahl")
+
+[node name="Lobster" parent="." instance=ExtResource("3_xcyql")]
+position = Vector2(128, 77)
+
+[node name="Camera" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_jqo6t")]
+player = NodePath("../Player")
+
+[node name="Enemy_Spawner" parent="." instance=ExtResource("5_k32po")]
