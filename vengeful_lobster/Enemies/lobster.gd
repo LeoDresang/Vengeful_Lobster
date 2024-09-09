@@ -16,19 +16,6 @@ func _ready():
 	speed += randi_range(-10,10)
 	sprite.set_frame(0)
 	anim.play("walk")
-	#var screen_rect = get_viewport_rect()
-	#print(screen_rect)
-	#entered = false
-	#pick a direction to the entrance
-	#to move horizontally or vertically
-	#if abs(dist.x) > abs(dist.y):
-		# move horizontally
-	#	direction.x = dist.x
-	#	direction.y = 0
-	#else:
-		#move vertically
-	#	direction.x = 0
-		#direction.y = dist.y
 
 func _process(delta: float) -> void:
 	screen_center = get_viewport_rect().get_center()
