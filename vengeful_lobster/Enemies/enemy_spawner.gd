@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var main = get_node("/root/TestLevel")
 
-var lobster_scene := preload("res://Enimies/Lobster.tscn")
+var lobster_scene := preload("res://Enemies/Lobster.tscn")
 var spawn_points := []
 
 # Called when the node enters the scene tree for the first time.

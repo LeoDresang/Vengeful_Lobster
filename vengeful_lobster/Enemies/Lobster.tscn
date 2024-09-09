@@ -1,0 +1,104 @@
+[gd_scene load_steps=12 format=3 uid="uid://ncs17tbaki4t"]
+
+[ext_resource type="Script" path="res://Enemies/lobster.gd" id="1_yxl8y"]
+[ext_resource type="Texture2D" uid="uid://d3qxf87uoyeip" path="res://Assets/Final/ThielMike_Lobster_MoveAnimation_Spritesheet_V1.png" id="2_o1ae8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j65bi"]
+atlas = ExtResource("2_o1ae8")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_up87x"]
+atlas = ExtResource("2_o1ae8")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jygx"]
+atlas = ExtResource("2_o1ae8")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vswcr"]
+atlas = ExtResource("2_o1ae8")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s0pb2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j65bi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_up87x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jygx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vswcr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_f281f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_l4lrf"]
+resource_name = "walk"
+length = 0.4
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_22ls6"]
+_data = {
+"RESET": SubResource("Animation_f281f"),
+"walk": SubResource("Animation_l4lrf")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_psso8"]
+radius = 16.0
+height = 48.0
+
+[node name="Lobster" type="CharacterBody2D"]
+scale = Vector2(0.7, 0.7)
+script = ExtResource("1_yxl8y")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+texture_repeat = 1
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_s0pb2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_22ls6")
+}
+
+[node name="Damage_Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Damage_Area"]
+position = Vector2(3, 0)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_psso8")

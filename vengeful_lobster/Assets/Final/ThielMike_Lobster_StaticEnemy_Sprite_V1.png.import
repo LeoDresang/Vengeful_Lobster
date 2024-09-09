@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cyycneac4qp57"
-path="res://.godot/imported/ThielMike_Lobster_StaticEnemy_Sprite_V1.png-28aae400683a2d9080899d90c8b4259b.ctex"
+path="res://.godot/imported/ThielMike_Lobster_StaticEnemy_Sprite_V1.png-e9d59ae34418c5fbdc6a3e165cc61e6c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Placeholders/ThielMike_Lobster_StaticEnemy_Sprite_V1.png"
-dest_files=["res://.godot/imported/ThielMike_Lobster_StaticEnemy_Sprite_V1.png-28aae400683a2d9080899d90c8b4259b.ctex"]
+source_file="res://Assets/Final/ThielMike_Lobster_StaticEnemy_Sprite_V1.png"
+dest_files=["res://.godot/imported/ThielMike_Lobster_StaticEnemy_Sprite_V1.png-e9d59ae34418c5fbdc6a3e165cc61e6c.ctex"]
 
 [params]
 

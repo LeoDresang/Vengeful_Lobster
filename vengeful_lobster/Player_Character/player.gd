@@ -1,19 +1,40 @@
 extends CharacterBody2D
 
 ## Speed of character in pixels/sec
-var speed = 400
+var speed = 175
+
+## Animated Sprite.
+@onready var sprite:AnimatedSprite2D = $AnimatedSprite2D
+
+## Animation Player.
+@onready var anim:AnimationPlayer = $AnimationPlayer
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	Globals.player = self
+	sprite.set_frame(0)
+	anim.play("walk")
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+# Called every frame. 'delta' is the elapsed time since the previous frame.S
 func _process(delta: float) -> void:
-	pass
+	animation_process()
+	
+
+func animation_process():
+	look_at(get_global_mouse_position())
+	if(position > get_global_mouse_position()):
+		sprite.flip_v = true
+	else:
+		sprite.flip_v = false
+	
+	if(velocity):
+		anim.play()
+	else:
+		anim.pause()
 
 func _physics_process(delta):
-	var direction = Input.get_vector("left", "right", "up", "down")
+	var direction:Vector2 = Input.get_vector("left", "right", "up", "down")
 	velocity = direction * speed
-
 	move_and_slide()
