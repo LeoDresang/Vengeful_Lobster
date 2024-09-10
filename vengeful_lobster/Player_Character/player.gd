@@ -22,6 +22,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.S
 func _process(delta: float) -> void:
 	animation_process()
+	Globals.player_position = position
 
 func animation_process():
 	look_at(get_global_mouse_position())

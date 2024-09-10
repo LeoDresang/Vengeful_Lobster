@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 	
 
 func animation_process():
-	look_at(Globals.player.position)
+	look_at(Globals.player_position)
 	
 	if(velocity):
 		anim.play()
@@ -33,7 +33,7 @@ func animation_process():
 		anim.pause()
 
 func _physics_process(delta):
-	velocity = (Globals.player.position - position).normalized() * speed
+	velocity = (Globals.player_position - position).normalized() * speed
 	move_and_slide()
 	
 

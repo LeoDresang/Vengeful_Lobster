@@ -40,3 +40,12 @@ layer_0/tile_data = PackedInt32Array(-1, 0, 0, -65536, 0, 0, -65535, 0, 0, -1966
 
 [node name="Lobster" parent="." instance=ExtResource("6_0jopb")]
 position = Vector2(-93, -27)
+
+[node name="Lobster2" parent="." instance=ExtResource("6_0jopb")]
+position = Vector2(-93, -27)
+
+[node name="Lobster3" parent="." instance=ExtResource("6_0jopb")]
+position = Vector2(-93, -27)
+
+[node name="Lobster4" parent="." instance=ExtResource("6_0jopb")]
+position = Vector2(-93, -27)
