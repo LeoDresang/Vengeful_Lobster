@@ -21,6 +21,8 @@ func _process(delta: float) -> void:
 	screen_center = get_viewport_rect().get_center()
 	animation_process()
 	
+	
+	
 
 func animation_process():
 	look_at(Globals.player.position)
@@ -34,3 +36,9 @@ func _physics_process(delta):
 	velocity = (Globals.player.position - position).normalized() * speed
 	move_and_slide()
 	
+
+
+func _on_damage_area_area_entered(area: Area2D) -> void:
+	if (area.get_parent() == Globals.player):
+		print("Player hit!")
+		

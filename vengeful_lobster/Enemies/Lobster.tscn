@@ -1,7 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://ncs17tbaki4t"]
+[gd_scene load_steps=13 format=3 uid="uid://ncs17tbaki4t"]
 
 [ext_resource type="Script" path="res://Enemies/lobster.gd" id="1_yxl8y"]
 [ext_resource type="Texture2D" uid="uid://d3qxf87uoyeip" path="res://Assets/Final/ThielMike_Lobster_MoveAnimation_Spritesheet_V1.png" id="2_o1ae8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yp515"]
+radius = 20.0
+height = 57.1429
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j65bi"]
 atlas = ExtResource("2_o1ae8")
@@ -83,7 +87,14 @@ height = 48.0
 
 [node name="Lobster" type="CharacterBody2D"]
 scale = Vector2(0.7, 0.7)
+collision_layer = 0
 script = ExtResource("1_yxl8y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.42857, 0)
+rotation = -1.5708
+scale = Vector2(1, 1)
+shape = SubResource("CapsuleShape2D_yp515")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -97,8 +108,12 @@ libraries = {
 }
 
 [node name="Damage_Area" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Damage_Area"]
 position = Vector2(3, 0)
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_psso8")
+
+[connection signal="area_entered" from="Damage_Area" to="." method="_on_damage_area_area_entered"]

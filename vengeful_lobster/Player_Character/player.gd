@@ -9,6 +9,8 @@ var speed = 175
 ## Animation Player.
 @onready var anim:AnimationPlayer = $AnimationPlayer
 
+## Hit Detector.
+@onready var hit_detector:Area2D = $Hit_Detector
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,7 +22,6 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.S
 func _process(delta: float) -> void:
 	animation_process()
-	
 
 func animation_process():
 	look_at(get_global_mouse_position())
