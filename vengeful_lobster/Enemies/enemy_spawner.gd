@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var main = get_node("/root/TestLevel")
+@onready var main = get_parent()
 
 var lobster_scene := preload("res://Enemies/Lobster.tscn")
 var spawn_points := []
@@ -13,7 +13,7 @@ func _ready():
 
 
 
-func _on_timer_timeout():
+func spawn_lobster():
 	#pick random spawn point
 	var spawn = spawn_points[randi() % spawn_points.size()]
 	#spawn enemy

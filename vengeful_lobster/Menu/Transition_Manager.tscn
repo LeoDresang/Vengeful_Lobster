@@ -2,21 +2,6 @@
 
 [ext_resource type="Script" path="res://Menu/transition_manager.gd" id="1_ik2bf"]
 
-[sub_resource type="Animation" id="Animation_l8wi1"]
-resource_name = "fade_in"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Transition/ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_xxbxe"]
 length = 0.001
 tracks/0/type = "value"
@@ -30,6 +15,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_l8wi1"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_tuwa5"]
@@ -63,6 +63,7 @@ libraries = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="Transition"]
+visible = false
 offset_right = 1152.0
 offset_bottom = 648.0
 scale = Vector2(39.962, 23.347)

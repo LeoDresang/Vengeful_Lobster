@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://wt025uoct0vm"]
+
+[ext_resource type="Script" path="res://Enemies/wave_system.gd" id="1_rwtah"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hiy3a"]
+font_size = 64
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7jxmx"]
+font_size = 40
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hpnsk"]
+font_size = 40
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[node name="WaveSystem" type="Node"]
+script = ExtResource("1_rwtah")
+
+[node name="WaveBigText" type="Label" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -11.0
+offset_top = 167.0
+offset_right = -11.0
+offset_bottom = 190.0
+grow_horizontal = 2
+text = "WAVE 1 INCOMING...
+10"
+label_settings = SubResource("LabelSettings_hiy3a")
+horizontal_alignment = 1
+
+[node name="WaveTracker" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -252.0
+offset_right = -17.0
+offset_bottom = 113.0
+grow_horizontal = 0
+text = "WAVES
+SURVIVED: 0"
+label_settings = SubResource("LabelSettings_7jxmx")
+horizontal_alignment = 1
+
+[node name="LobsterTracker" type="Label" parent="."]
+offset_left = 17.0
+offset_right = 255.0
+offset_bottom = 171.0
+text = "LOBSTERS
+REMAINING:
+0"
+label_settings = SubResource("LabelSettings_hpnsk")
+horizontal_alignment = 1

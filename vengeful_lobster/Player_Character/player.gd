@@ -4,13 +4,16 @@ extends CharacterBody2D
 var speed = 175
 
 ## Animated Sprite.
-@onready var sprite:AnimatedSprite2D = $AnimatedSprite2D
+@onready var sprite:AnimatedSprite2D = $ChefSprite
 
 ## Animation Player.
-@onready var anim:AnimationPlayer = $AnimationPlayer
+@onready var anim:AnimationPlayer = $ChefAnimator
+@onready var anim_knife:AnimationPlayer = $KnifeAnimator
 
 ## Hit Detector.
 @onready var hit_detector:Area2D = $Hit_Detector
+
+@onready var knife:AnimatedSprite2D = $Knife
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,6 +26,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	animation_process()
 	Globals.player_position = position
+	
+	if(Input.is_action_just_pressed("swing_knife")):
+		anim_knife.play("swing_knife")
 
 func animation_process():
 	look_at(get_global_mouse_position())
