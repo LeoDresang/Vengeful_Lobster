@@ -6,43 +6,42 @@
 script = ExtResource("1_f5ysu")
 
 [node name="Marker2D1" type="Marker2D" parent="."]
-position = Vector2(-433, 264)
+position = Vector2(-580, 60)
 
 [node name="Marker2D2" type="Marker2D" parent="."]
-position = Vector2(-433, 184)
+position = Vector2(-580, 0)
 
 [node name="Marker2D3" type="Marker2D" parent="."]
-position = Vector2(-433, 344)
+position = Vector2(-580, 120)
 
 [node name="Marker2D4" type="Marker2D" parent="."]
-position = Vector2(1491, 264)
+position = Vector2(640, 60)
 
 [node name="Marker2D5" type="Marker2D" parent="."]
-position = Vector2(1491, 344)
+position = Vector2(640, 0)
 
 [node name="Marker2D6" type="Marker2D" parent="."]
-position = Vector2(1491, 184)
+position = Vector2(640, 120)
 
 [node name="Marker2D7" type="Marker2D" parent="."]
-position = Vector2(529, -220)
+position = Vector2(0, -350)
 
 [node name="Marker2D8" type="Marker2D" parent="."]
-position = Vector2(449, -220)
+position = Vector2(60, -350)
 
 [node name="Marker2D9" type="Marker2D" parent="."]
-position = Vector2(609, -220)
+position = Vector2(-60, -350)
 
 [node name="Marker2D10" type="Marker2D" parent="."]
-position = Vector2(529, 860)
+position = Vector2(0, 640)
 
 [node name="Marker2D11" type="Marker2D" parent="."]
-position = Vector2(609, 860)
+position = Vector2(60, 640)
 
 [node name="Marker2D12" type="Marker2D" parent="."]
-position = Vector2(449, 860)
+position = Vector2(-60, 640)
 
 [node name="Timer" type="Timer" parent="."]
-one_shot = true
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
