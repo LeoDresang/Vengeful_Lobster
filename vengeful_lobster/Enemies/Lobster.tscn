@@ -126,7 +126,7 @@ _data = {
 radius = 16.0
 height = 48.0
 
-[node name="Lobster" type="CharacterBody2D"]
+[node name="Lobster" type="CharacterBody2D" groups=["Lobster"]]
 scale = Vector2(0.7, 0.7)
 collision_layer = 2
 collision_mask = 3
@@ -153,7 +153,7 @@ libraries = {
 }
 
 [node name="Damage_Area" type="Area2D" parent="."]
-collision_layer = 0
+collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Damage_Area"]
@@ -170,5 +170,4 @@ path_desired_distance = 75.0
 target_desired_distance = 30.0
 debug_enabled = true
 
-[connection signal="area_entered" from="Damage_Area" to="." method="_on_damage_area_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

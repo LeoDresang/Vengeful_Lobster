@@ -1,8 +1,10 @@
-[gd_scene load_steps=31 format=3 uid="uid://cs5tlhhlfa8sl"]
+[gd_scene load_steps=38 format=3 uid="uid://cs5tlhhlfa8sl"]
 
 [ext_resource type="Script" path="res://Player_Character/player.gd" id="1_xn707"]
 [ext_resource type="Texture2D" uid="uid://coqdeefdrmnnh" path="res://Assets/Final/StalzerSami_Chef_WalkSpritesheet_V1.png" id="2_3lo7i"]
 [ext_resource type="Texture2D" uid="uid://c4tjvds3jq68f" path="res://Assets/Final/StalzerSami_Chef_AttackSpritesheet_V1.png" id="3_bwno8"]
+[ext_resource type="Texture2D" uid="uid://cnkltl6su8f62" path="res://Assets/Final/StalzerSami_Chef_DeathPose_V1.png" id="3_vbm12"]
+[ext_resource type="Texture2D" uid="uid://dh020clhfscun" path="res://Assets/Final/StalzerSami_Chef_KnockbackSpritesheet_V1.png" id="4_jp6qt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i7ys8"]
 size = Vector2(28, 28)
@@ -39,6 +41,22 @@ region = Rect2(64, 32, 32, 32)
 atlas = ExtResource("2_3lo7i")
 region = Rect2(96, 32, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_32tyh"]
+atlas = ExtResource("4_jp6qt")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvyqh"]
+atlas = ExtResource("4_jp6qt")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ckcs"]
+atlas = ExtResource("4_jp6qt")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uknj1"]
+atlas = ExtResource("4_jp6qt")
+region = Rect2(96, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_mrrse"]
 animations = [{
 "frames": [{
@@ -65,6 +83,21 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_il1hu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vbm12")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32tyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yvyqh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ckcs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uknj1")
 }],
 "loop": true,
 "name": &"Walking",
@@ -115,9 +148,28 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
 }
 
+[sub_resource type="Animation" id="Animation_6lh13"]
+resource_name = "damaged"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ChefSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [9, 10, 11, 12]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qwj4g"]
 _data = {
 "RESET": SubResource("Animation_a6km8"),
+"damaged": SubResource("Animation_6lh13"),
 "walk": SubResource("Animation_tycx0")
 }
 
@@ -188,23 +240,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Animation" id="Animation_8mcne"]
-resource_name = "swing_knife"
-length = 0.48
-step = 0.06
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Knife:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.06, 0.12, 0.18, 0.24, 0.3, 0.36, 0.42),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7]
-}
-
 [sub_resource type="Animation" id="Animation_x210e"]
 length = 0.001
 tracks/0/type = "value"
@@ -220,6 +255,23 @@ tracks/0/keys = {
 "values": [0]
 }
 
+[sub_resource type="Animation" id="Animation_8mcne"]
+resource_name = "swing_knife"
+length = 0.6
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Knife:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lxuox"]
 _data = {
 "RESET": SubResource("Animation_x210e"),
@@ -230,7 +282,7 @@ _data = {
 radius = 18.0
 height = 50.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Lobster"]]
 z_index = 1
 collision_layer = 0
 script = ExtResource("1_xn707")
@@ -251,8 +303,8 @@ libraries = {
 }
 
 [node name="Hit_Detector" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 0
+collision_layer = 0
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hit_Detector"]
 shape = SubResource("CircleShape2D_1nop1")
@@ -260,9 +312,8 @@ shape = SubResource("CircleShape2D_1nop1")
 [node name="Knife" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 texture_repeat = 1
-position = Vector2(32, 0)
+position = Vector2(22, 0)
 rotation = 0.785398
-scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_jcai5")
 
 [node name="KnifeAnimator" type="AnimationPlayer" parent="."]
@@ -271,7 +322,10 @@ libraries = {
 }
 
 [node name="KnifeDamage" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KnifeDamage"]
-position = Vector2(30, 0)
+position = Vector2(22, 0)
+scale = Vector2(0.537383, 0.817395)
 shape = SubResource("CapsuleShape2D_wtfsi")

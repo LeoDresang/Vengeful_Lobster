@@ -1,7 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://c0lofer1q1oyi"]
+[gd_scene load_steps=10 format=3 uid="uid://c0lofer1q1oyi"]
 
 [ext_resource type="PackedScene" uid="uid://cs5tlhhlfa8sl" path="res://Player_Character/Player.tscn" id="1_wdtu2"]
-[ext_resource type="PackedScene" uid="uid://dvl5y77tbm1ue" path="res://Player_Character/HealthManager.tscn" id="3_enk66"]
 [ext_resource type="PackedScene" uid="uid://l1s58k5drqup" path="res://Camera/Camera.tscn" id="4_vo8gg"]
 [ext_resource type="Texture2D" uid="uid://dnoilj78oijq3" path="res://Assets/Final/TileSets/dailylila_floortile_V1.png" id="5_y5odb"]
 [ext_resource type="PackedScene" uid="uid://clm5vkct60dg1" path="res://Menu/Transition_Manager.tscn" id="6_ldvs5"]
@@ -51,14 +50,10 @@ sources/0 = SubResource("TileSetAtlasSource_36q04")
 
 [node name="TransitionManager" parent="CanvasLayer" instance=ExtResource("6_ldvs5")]
 
-[node name="WaveSystem" parent="CanvasLayer" node_paths=PackedStringArray("spawner", "health_manager") instance=ExtResource("6_mwaxw")]
+[node name="WaveSystem" parent="CanvasLayer" node_paths=PackedStringArray("spawner") instance=ExtResource("6_mwaxw")]
 spawner = NodePath("../../Enemy_Spawner")
-health_manager = NodePath("../HealthManager")
 
-[node name="HealthManager" parent="CanvasLayer" instance=ExtResource("3_enk66")]
-
-[node name="Player" parent="." node_paths=PackedStringArray("health_manager") instance=ExtResource("1_wdtu2")]
-health_manager = NodePath("../CanvasLayer/HealthManager")
+[node name="Player" parent="." instance=ExtResource("1_wdtu2")]
 
 [node name="Camera" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_vo8gg")]
 player = NodePath("../Player")

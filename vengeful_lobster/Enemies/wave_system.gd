@@ -17,13 +17,17 @@ var wave_active:bool = false
 @onready var wave_tracker:Label = $WaveTracker
 @onready var lobster_tracker:Label = $LobsterTracker
 
+@export var health_manager:Node
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	begin_wave()
+	Globals.lobster_killed.connect(lobster_killed)
 
 func begin_wave():
-	lobsters_required = (((wave_num * 4)^2)/2) + 5
+	lobsters_required = (((wave_num * 6)^2)/2) + 10
 	lobsters_remaining = lobsters_required
 	
 	wave_big_text.visible = true
@@ -88,4 +92,6 @@ func _process(delta: float) -> void:
 			wave_active = false
 			update_wave_tracker()
 			wave_num += 1
+			health_manager.health = health_manager.MAX_HEALTH
+			health_manager.update_health_ui()
 			begin_wave()

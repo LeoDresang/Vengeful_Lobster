@@ -9,7 +9,7 @@ extends CharacterBody2D
 ## NavigationAgent2D
 @onready var navigation_agent_2d = $NavigationAgent2D
 
-var speed : int = 150
+var speed : int = 90
 var acceleration = 7
 var screen_center:Vector2
 var target_direction 
@@ -21,6 +21,14 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	screen_center = get_viewport_rect().get_center()
 	animation_process()
+	
+	if (Globals.player.swinging_knife):
+		if($Damage_Area.get_overlapping_areas()):
+			for area in $Damage_Area.get_overlapping_areas():
+				if (area == Globals.knife_area):
+					Globals.lobster_killed_signal()
+					self.queue_free()
+		
 	
 	
 	
@@ -43,11 +51,6 @@ func _physics_process(delta):
 	velocity = velocity.lerp(direction * speed, acceleration * delta)
 	
 	move_and_slide()
-
-func _on_damage_area_area_entered(area: Area2D) -> void:
-	if (area.get_parent() == Globals.player):
-		print("Player hit!")
-		
 
 
 func _on_timer_timeout():
