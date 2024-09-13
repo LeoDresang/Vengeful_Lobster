@@ -41,12 +41,14 @@ func _process(delta: float) -> void:
 			if(hit_detector.get_overlapping_areas()):
 				for area in hit_detector.get_overlapping_areas():
 					if (area.get_parent().is_in_group("Lobster")):
-						invincible = true
-						anim.play("damaged")
-						health_manager.damage()
-						await get_tree().create_timer(2).timeout
-						invincible = false
-						anim.play("walk")
+						if(!area.get_parent().dying):
+							invincible = true
+							anim.play("damaged")
+							area.get_parent().attacking = true
+							health_manager.damage()
+							await get_tree().create_timer(2).timeout
+							invincible = false
+							anim.play("walk")
 
 						
 		
@@ -58,8 +60,8 @@ func _process(delta: float) -> void:
 			await get_tree().create_timer(0.15).timeout
 			knife.set_frame(0)
 	else:
-		sprite.rotation = 0
 		rotation = 0
+		sprite.rotation = 0
 		knife.visible = false
 		if(sprite.get_frame() != 8):
 			sprite.set_frame(8)

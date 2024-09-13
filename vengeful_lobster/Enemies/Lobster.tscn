@@ -1,32 +1,13 @@
-[gd_scene load_steps=19 format=3 uid="uid://ncs17tbaki4t"]
+[gd_scene load_steps=26 format=3 uid="uid://ncs17tbaki4t"]
 
 [ext_resource type="Script" path="res://Enemies/lobster.gd" id="1_yxl8y"]
 [ext_resource type="Texture2D" uid="uid://d3qxf87uoyeip" path="res://Assets/Final/ThielMike_Lobster_MoveAnimation_Spritesheet_V1.png" id="2_o1ae8"]
 [ext_resource type="Texture2D" uid="uid://dw58up0ugt73b" path="res://Assets/Final/ThielMike_Lobster_AttackAnimation_Spritesheet_V1.png" id="2_yxcin"]
+[ext_resource type="Texture2D" uid="uid://mgjd1rccvgol" path="res://Assets/Final/ThielMike_Lobster_DeathAnimation_Spritesheet_V1.png" id="4_08vbt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yp515"]
 radius = 14.2857
 height = 51.4286
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0h2r3"]
-atlas = ExtResource("2_yxcin")
-region = Rect2(0, 0, 40, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0uwfh"]
-atlas = ExtResource("2_yxcin")
-region = Rect2(40, 0, 40, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wf1d4"]
-atlas = ExtResource("2_yxcin")
-region = Rect2(80, 0, 40, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rtjlf"]
-atlas = ExtResource("2_yxcin")
-region = Rect2(120, 0, 40, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6om0n"]
-atlas = ExtResource("2_yxcin")
-region = Rect2(160, 0, 40, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j65bi"]
 atlas = ExtResource("2_o1ae8")
@@ -44,28 +25,44 @@ region = Rect2(64, 0, 32, 64)
 atlas = ExtResource("2_o1ae8")
 region = Rect2(96, 0, 32, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_igulw"]
+atlas = ExtResource("2_yxcin")
+region = Rect2(0, 0, 40, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7k8e"]
+atlas = ExtResource("2_yxcin")
+region = Rect2(40, 0, 40, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e18ip"]
+atlas = ExtResource("2_yxcin")
+region = Rect2(80, 0, 40, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qr72n"]
+atlas = ExtResource("2_yxcin")
+region = Rect2(120, 0, 40, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mie64"]
+atlas = ExtResource("2_yxcin")
+region = Rect2(160, 0, 40, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vst23"]
+atlas = ExtResource("4_08vbt")
+region = Rect2(0, 0, 50, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8b0ak"]
+atlas = ExtResource("4_08vbt")
+region = Rect2(50, 0, 50, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e575t"]
+atlas = ExtResource("4_08vbt")
+region = Rect2(100, 0, 50, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhark"]
+atlas = ExtResource("4_08vbt")
+region = Rect2(150, 0, 50, 64)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_s0pb2"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0h2r3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0uwfh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wf1d4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rtjlf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6om0n")
-}],
-"loop": true,
-"name": &"attack",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_j65bi")
@@ -78,6 +75,33 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vswcr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igulw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7k8e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e18ip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qr72n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mie64")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vst23")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8b0ak")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e575t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rhark")
 }],
 "loop": true,
 "name": &"default",
@@ -116,9 +140,45 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3]
 }
 
+[sub_resource type="Animation" id="Animation_nsfj1"]
+resource_name = "attacking"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 7, 8]
+}
+
+[sub_resource type="Animation" id="Animation_4wskq"]
+resource_name = "death"
+length = 0.4
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [9, 10, 11, 12]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_22ls6"]
 _data = {
 "RESET": SubResource("Animation_f281f"),
+"attacking": SubResource("Animation_nsfj1"),
+"death": SubResource("Animation_4wskq"),
 "walk": SubResource("Animation_l4lrf")
 }
 
@@ -144,7 +204,6 @@ texture_filter = 1
 texture_repeat = 1
 rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_s0pb2")
-animation = &"attack"
 autoplay = "default"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
