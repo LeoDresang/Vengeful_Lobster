@@ -69,7 +69,7 @@ func _physics_process(delta):
 	direction = direction.normalized()
 	
 	velocity = velocity.lerp(direction * speed, acceleration * delta)
-	if(!dying):
+	if(!dying || !attacking):
 		move_and_slide()
 
 
