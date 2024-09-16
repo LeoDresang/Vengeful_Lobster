@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://wt025uoct0vm"]
+[gd_scene load_steps=6 format=3 uid="uid://wt025uoct0vm"]
 
 [ext_resource type="Script" path="res://Enemies/wave_system.gd" id="1_rwtah"]
+[ext_resource type="Texture2D" uid="uid://dgqt4mnib65k1" path="res://Assets/Final/StalzerSami_DeathBand_V1.png" id="2_kffi6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hiy3a"]
 font_size = 64
@@ -55,3 +56,19 @@ REMAINING:
 0"
 label_settings = SubResource("LabelSettings_hpnsk")
 horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Cooked" type="Sprite2D" parent="Control"]
+texture_filter = 1
+texture_repeat = 1
+scale = Vector2(8, 8)
+texture = ExtResource("2_kffi6")

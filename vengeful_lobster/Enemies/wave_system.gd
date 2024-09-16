@@ -16,13 +16,18 @@ var wave_active:bool = false
 @onready var wave_big_text:Label = $WaveBigText
 @onready var wave_tracker:Label = $WaveTracker
 @onready var lobster_tracker:Label = $LobsterTracker
+@onready var cooked:Sprite2D = $Control/Cooked
 
 @export var health_manager:Node
 
 
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Globals.cooked.connect(cooked_screen)
+	cooked.visible = false
+	cooked.modulate.a = 0
 	begin_wave()
 	Globals.lobster_killed.connect(lobster_killed)
 
@@ -95,3 +100,13 @@ func _process(delta: float) -> void:
 			health_manager.health = health_manager.MAX_HEALTH
 			health_manager.update_health_ui()
 			begin_wave()
+			
+
+func cooked_screen():
+	await get_tree().create_timer(4).timeout
+	cooked.visible = true
+	while(cooked.modulate.a < 1):
+		cooked.modulate.a += 0.006
+		await get_tree().create_timer(0.01).timeout
+
+		

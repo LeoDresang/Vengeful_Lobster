@@ -61,8 +61,8 @@ func _process(delta: float) -> void:
 			knife.set_frame(0)
 	else:
 		anim.stop()
-		global_rotation_degrees = 0
-		sprite.global_rotation_degrees = 0
+		global_rotation_degrees = 0.0001
+		sprite.global_rotation_degrees = 0.0001
 		knife.visible = false
 		if(sprite.get_frame() != 8):
 			sprite.set_frame(8)
