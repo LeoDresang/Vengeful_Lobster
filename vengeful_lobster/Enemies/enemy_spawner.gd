@@ -3,6 +3,7 @@ extends Node2D
 @onready var main = get_parent()
 
 var lobster_scene := preload("res://Enemies/Lobster.tscn")
+var bluelobster_scene := preload("res://Enemies/BlueLobster.tscn")
 var spawn_points := []
 
 # Called when the node enters the scene tree for the first time.
@@ -19,8 +20,9 @@ func spawn_lobster():
 	#spawn enemy
 	var temp:int = randi_range(1,100)
 	if(temp == 1):
-		pass
-		#spawn in blue lobster
+		var lobster = bluelobster_scene.instantiate()
+		lobster.position = spawn.position
+		main.add_child(lobster)
 	else:
 		var lobster = lobster_scene.instantiate()
 		lobster.position = spawn.position
