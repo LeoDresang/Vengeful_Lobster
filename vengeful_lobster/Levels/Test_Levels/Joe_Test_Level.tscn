@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://clm5vkct60dg1" path="res://Menu/Transition_Manager.tscn" id="1_4stuh"]
 [ext_resource type="PackedScene" uid="uid://cs5tlhhlfa8sl" path="res://Player_Character/Player.tscn" id="1_pbqnn"]
-[ext_resource type="PackedScene" path="res://Enemies/Wave_System.tscn" id="2_wcupw"]
+[ext_resource type="PackedScene" uid="uid://wt025uoct0vm" path="res://Enemies/Wave_System.tscn" id="2_wcupw"]
 [ext_resource type="Texture2D" uid="uid://dnoilj78oijq3" path="res://Assets/Final/TileSets/dailylila_floortile_V1.png" id="4_acpoj"]
 [ext_resource type="PackedScene" uid="uid://l1s58k5drqup" path="res://Camera/Camera.tscn" id="4_jqo6t"]
 [ext_resource type="PackedScene" uid="uid://puf3kbkbmxt2" path="res://Enemies/Enemy_Spawner.tscn" id="5_k32po"]
@@ -306,7 +306,7 @@ sources/11 = SubResource("TileSetAtlasSource_uukan")
 sources/12 = SubResource("TileSetAtlasSource_27x13")
 sources/13 = SubResource("TileSetAtlasSource_cmkcj")
 
-[node name="TestLevel" type="Node"]
+[node name="TestLevel2" type="Node"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

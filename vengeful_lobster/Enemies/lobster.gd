@@ -52,6 +52,7 @@ func animation_process():
 		main.add_child(blood)
 		self.queue_free()
 	elif(attacking):
+		print("attacking")
 		anim.play("attacking")
 		await get_tree().create_timer(anim.current_animation_length).timeout
 		attacking = false
