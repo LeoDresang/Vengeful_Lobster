@@ -55,9 +55,9 @@ func _process(delta: float) -> void:
 		if(!anim_knife.is_playing() and Input.is_action_just_pressed("swing_knife")):
 			swinging_knife = true
 			anim_knife.play("swing_knife")
-			await get_tree().create_timer(anim_knife.current_animation_length -0.15).timeout
+			await get_tree().create_timer(anim_knife.current_animation_length -0.75).timeout
 			swinging_knife = false
-			await get_tree().create_timer(0.15).timeout
+			await get_tree().create_timer(0.75).timeout
 			knife.set_frame(0)
 	else:
 		anim.stop()

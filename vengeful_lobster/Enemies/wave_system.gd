@@ -37,16 +37,6 @@ func begin_wave():
 	
 	wave_big_text.visible = true
 	wave_big_text.modulate.a = 1
-	wave_big_text.set_text("WAVE " + str(wave_num) + " INCOMING... \n10")
-	await get_tree().create_timer(1).timeout
-	wave_big_text.set_text("WAVE " + str(wave_num) + " INCOMING... \n9")
-	await get_tree().create_timer(1).timeout
-	wave_big_text.set_text("WAVE " + str(wave_num) + " INCOMING... \n8")
-	await get_tree().create_timer(1).timeout
-	wave_big_text.set_text("WAVE " + str(wave_num) + " INCOMING... \n7")
-	await get_tree().create_timer(1).timeout
-	wave_big_text.set_text("WAVE " + str(wave_num) + " INCOMING... \n6")
-	await get_tree().create_timer(1).timeout
 	wave_big_text.set_text("WAVE " + str(wave_num) + " INCOMING... \n5")
 	await get_tree().create_timer(1).timeout
 	wave_big_text.set_text("WAVE " + str(wave_num) + " INCOMING... \n4")
@@ -89,7 +79,7 @@ func _process(delta: float) -> void:
 	if(wave_active):
 		if(lobsters_queued > 0):
 			timer += delta
-			if(timer >= ((1/wave_num) + 2)):
+			if(timer >= ((1/wave_num) + 0.8)):
 				timer = 0
 				spawner.spawn_lobster()
 				lobsters_queued -= 1
