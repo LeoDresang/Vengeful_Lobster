@@ -60,7 +60,7 @@ func _process(delta: float) -> void:
 			await get_tree().create_timer(0.15).timeout
 			knife.set_frame(0)
 	else:
-		rotation = 0
+		anim.stop()
 		sprite.rotation = 0
 		knife.visible = false
 		if(sprite.get_frame() != 8):
