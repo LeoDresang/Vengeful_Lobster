@@ -52,7 +52,6 @@ func animation_process():
 		main.add_child(blood)
 		self.queue_free()
 	elif(attacking):
-		print("attacking")
 		anim.play("attacking")
 		await get_tree().create_timer(anim.current_animation_length).timeout
 		attacking = false
@@ -70,7 +69,7 @@ func _physics_process(delta):
 	direction = direction.normalized()
 	
 	velocity = velocity.lerp(direction * speed, acceleration * delta)
-	if(!dying || !attacking):
+	if(anim.current_animation == "walk" && ((abs(position - Globals.player_position)).length() > 0.5)):
 		move_and_slide()
 
 
