@@ -7,11 +7,11 @@ extends AnimatedSprite2D
 
 func _process(delta):
 	if (button.is_hovered()):
-		scale.x = 16
-		scale.y = 16
+		scale.x = 13
+		scale.y = 13
 	else:
-		scale.x = 15
-		scale.y = 15
+		scale.x = 12
+		scale.y = 12
 		
 
 func _on_button_pressed() -> void:
