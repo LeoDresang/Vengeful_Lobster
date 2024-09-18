@@ -1,9 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://c28y6ksfpvuqr"]
+[gd_scene load_steps=27 format=3 uid="uid://c28y6ksfpvuqr"]
 
 [ext_resource type="Script" path="res://Enemies/lobster.gd" id="1_n2com"]
 [ext_resource type="Texture2D" uid="uid://ca474k6spnsl4" path="res://Assets/Final/ThielMike_BlueLobster_MoveAnimation__Spritesheet_V1.png" id="2_wps3o"]
 [ext_resource type="Texture2D" uid="uid://ot2bqha7bjy0" path="res://Assets/Final/ThielMike_BlueLobster_AttackAnimation_Spritesheet_V1.png" id="3_rmcg8"]
 [ext_resource type="Texture2D" uid="uid://bjp3xpnyd3i8e" path="res://Assets/Final/ThielMike_BlueLobster_DeathAnimation_Spritesheet_V1.png" id="4_7wojp"]
+[ext_resource type="AudioStream" uid="uid://c6wc0ti6c024m" path="res://Assets/Audio/SFX/LobsterDamage.wav" id="5_mb2cu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yp515"]
 radius = 14.2857
@@ -228,5 +229,9 @@ autostart = true
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 75.0
 target_desired_distance = 30.0
+
+[node name="LobsterDamage" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_mb2cu")
+volume_db = -10.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
