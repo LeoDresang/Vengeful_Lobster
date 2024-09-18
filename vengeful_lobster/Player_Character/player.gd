@@ -40,16 +40,17 @@ func _process(delta: float) -> void:
 		if(!invincible):
 			if(hit_detector.get_overlapping_areas()):
 				for area in hit_detector.get_overlapping_areas():
-					if (area.get_parent().is_in_group("Lobster")):
-						if(!area.get_parent().dying):
-							$Damaged.play()
-							invincible = true
-							anim.play("damaged")
-							area.get_parent().attacking = true
-							health_manager.damage()
-							await get_tree().create_timer(2).timeout
-							invincible = false
-							anim.play("walk")
+					if(area):
+						if (area.get_parent().is_in_group("Lobster")):
+							if(!area.get_parent().dying):
+								$Damaged.play()
+								invincible = true
+								anim.play("damaged")
+								area.get_parent().attacking = true
+								health_manager.damage()
+								await get_tree().create_timer(2).timeout
+								invincible = false
+								anim.play("walk")
 
 						
 		
