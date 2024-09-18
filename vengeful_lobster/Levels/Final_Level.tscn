@@ -327,9 +327,11 @@ health_manager = NodePath("../CanvasLayer/HealthManager")
 
 [node name="Slash" type="AudioStreamPlayer" parent="Player"]
 stream = ExtResource("5_cgwva")
+volume_db = 5.0
 
 [node name="Damaged" type="AudioStreamPlayer" parent="Player"]
 stream = ExtResource("7_arkpn")
+volume_db = -5.0
 
 [node name="Camera" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_p55kt")]
 player = NodePath("../Player")
@@ -357,4 +359,4 @@ script = ExtResource("20_0xbp7")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="MusicManager"]
 stream = ExtResource("2_uujwb")
-volume_db = -10.0
+volume_db = -15.0
