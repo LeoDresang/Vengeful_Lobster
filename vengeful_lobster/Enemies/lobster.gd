@@ -32,8 +32,9 @@ func _process(delta: float) -> void:
 	if (Globals.player.swinging_knife):
 		if($Damage_Area.get_overlapping_areas()):
 			for area in $Damage_Area.get_overlapping_areas():
-				if (area == Globals.knife_area):
+				if (area == Globals.knife_area and !dying):
 					dying = true
+					# PUT SOUND EFFECT HERE
 		
 	
 	
