@@ -16,3 +16,4 @@ func player_death():
 	cooked.emit()
 	await get_tree().create_timer(10).timeout
 	get_tree().change_scene_to_packed(load(SceneNavigationGlobals.start_menu))
+	

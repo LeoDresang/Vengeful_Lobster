@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dvl5y77tbm1ue"]
+[gd_scene load_steps=10 format=3 uid="uid://dvl5y77tbm1ue"]
 
 [ext_resource type="Script" path="res://HealthManager.gd" id="1_uarhc"]
 [ext_resource type="Texture2D" uid="uid://c23304fi2wybv" path="res://Assets/Placeholders/dailylila_healthbar_V1.png" id="2_l4v5v"]
+[ext_resource type="AudioStream" uid="uid://cjxfcu2q2ink" path="res://Assets/Audio/SFX/bacon-sizzle-2-64748.mp3" id="3_g85lr"]
+[ext_resource type="Script" path="res://Player_Character/cooked.gd" id="4_fx2o3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g70td"]
 atlas = ExtResource("2_l4v5v")
@@ -63,3 +65,7 @@ texture_repeat = 1
 position = Vector2(169, -75)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_a637r")
+
+[node name="Cooked" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_g85lr")
+script = ExtResource("4_fx2o3")

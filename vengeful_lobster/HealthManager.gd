@@ -17,3 +17,5 @@ func damage() -> void:
 	update_health_ui()
 	if health < 1:
 		Globals.player_death()
+		$DeathFlop.play()
+		$Cooked.play()

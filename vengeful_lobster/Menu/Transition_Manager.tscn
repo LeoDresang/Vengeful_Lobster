@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://clm5vkct60dg1"]
+[gd_scene load_steps=7 format=3 uid="uid://clm5vkct60dg1"]
 
 [ext_resource type="Script" path="res://Menu/transition_manager.gd" id="1_ik2bf"]
+[ext_resource type="AudioStream" uid="uid://cjxfcu2q2ink" path="res://Assets/Audio/SFX/bacon-sizzle-2-64748.mp3" id="2_du52k"]
 
 [sub_resource type="Animation" id="Animation_xxbxe"]
 length = 0.001
@@ -69,5 +70,8 @@ offset_bottom = 648.0
 scale = Vector2(39.962, 23.347)
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
+
+[node name="GotCooked" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_du52k")
 
 [connection signal="animation_finished" from="Transition" to="." method="_on_transition_animation_finished"]

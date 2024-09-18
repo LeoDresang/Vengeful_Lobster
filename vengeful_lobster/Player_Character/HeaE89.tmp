@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=3 uid="uid://dvl5y77tbm1ue"]
+
+[ext_resource type="Script" path="res://HealthManager.gd" id="1_uarhc"]
+[ext_resource type="Texture2D" uid="uid://c23304fi2wybv" path="res://Assets/Placeholders/dailylila_healthbar_V1.png" id="2_l4v5v"]
+[ext_resource type="AudioStream" uid="uid://cjxfcu2q2ink" path="res://Assets/Audio/SFX/bacon-sizzle-2-64748.mp3" id="3_g85lr"]
+[ext_resource type="Script" path="res://Player_Character/cooked.gd" id="4_fx2o3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g70td"]
+atlas = ExtResource("2_l4v5v")
+region = Rect2(0, 49, 64, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_irwme"]
+atlas = ExtResource("2_l4v5v")
+region = Rect2(0, 34, 64, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6jnq8"]
+atlas = ExtResource("2_l4v5v")
+region = Rect2(0, 19, 64, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ccv3a"]
+atlas = ExtResource("2_l4v5v")
+region = Rect2(0, 4, 64, 11)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a637r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g70td")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_irwme")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6jnq8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ccv3a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="HealthManager" type="Node"]
+script = ExtResource("1_uarhc")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -348.0
+offset_top = 25.0
+offset_right = -308.0
+offset_bottom = 65.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="DailylilaHealthbarV1" type="AnimatedSprite2D" parent="Control"]
+z_index = -1
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(169, -75)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_a637r")
+
+[node name="Cooked" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_g85lr")
+script = ExtResource("4_fx2o3")

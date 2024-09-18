@@ -34,7 +34,7 @@ func _process(delta: float) -> void:
 			for area in $Damage_Area.get_overlapping_areas():
 				if (area == Globals.knife_area and !dying):
 					dying = true
-					# PUT SOUND EFFECT HERE
+					$LobsterDamage.play()
 		
 	
 	

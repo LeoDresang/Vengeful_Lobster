@@ -42,6 +42,7 @@ func _process(delta: float) -> void:
 				for area in hit_detector.get_overlapping_areas():
 					if (area.get_parent().is_in_group("Lobster")):
 						if(!area.get_parent().dying):
+							$Damaged.play()
 							invincible = true
 							anim.play("damaged")
 							area.get_parent().attacking = true
@@ -53,6 +54,7 @@ func _process(delta: float) -> void:
 						
 		
 		if(!anim_knife.is_playing() and Input.is_action_just_pressed("swing_knife")):
+			$Slash.play(.4)
 			swinging_knife = true
 			anim_knife.play("swing_knife")
 			await get_tree().create_timer(anim_knife.current_animation_length -0.75).timeout
